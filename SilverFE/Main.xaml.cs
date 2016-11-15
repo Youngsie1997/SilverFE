@@ -11,18 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Npgsql;
 using MahApps.Metro.Controls;
-
 namespace SilverFE
 {
     /// <summary>
     /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class Main : MetroWindow
     {
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void btShow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgSilver_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
         }
     }
 }
