@@ -9,8 +9,8 @@
         Title="Login" Height="134" Width="300" ResizeMode="CanMinimize" Loaded="LoginWindow_Loaded" Icon="SilverBar.ico" SizeToContent="Height" WindowStartupLocation="CenterScreen">
     <Grid x:Name="LoginGrid">
         <TextBox x:Name="tbUserName" Height="23" Margin="63.083,16.04,10,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyDown="tbUserName_PreviewKeyDown"/>
-        <Label x:Name="lbUserName" Content="UserName:" HorizontalAlignment="Left" Margin="0,23.08,0,0" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" RenderTransformOrigin="-0.214,0.663"/>
-        <Label x:Name="lbPassword" Content="Password:" HorizontalAlignment="Left" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" Margin="0,50,0,0"/>
+        <Label x:Name="lbUserName" Content="Username :" HorizontalAlignment="Left" Margin="0,23.08,0,0" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" RenderTransformOrigin="-0.214,0.663"/>
+        <Label x:Name="lbPassword" Content="Password :" HorizontalAlignment="Left" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" Margin="0,50,0,0"/>
         <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="63.083,80.04,0,0" Click="btLogin_Click"/>
         <PasswordBox x:Name="tbPassword" Margin="63.083,44.04,10,0" Height="23" VerticalAlignment="top" PreviewKeyDown="tbPassword_PreviewKeyDown"/>
     </Grid>
