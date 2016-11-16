@@ -11,7 +11,9 @@
         <TextBox x:Name="tbUserName" Height="23" Margin="63.083,16.04,10,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyDown="tbUserName_PreviewKeyDown"/>
         <Label x:Name="lbUserName" Content="Username :" HorizontalAlignment="Left" Margin="0,23.08,0,0" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" RenderTransformOrigin="-0.214,0.663"/>
         <Label x:Name="lbPassword" Content="Password :" HorizontalAlignment="Left" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" Margin="0,50,0,0"/>
-        <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="63.083,80.04,0,0" Click="btLogin_Click"/>
+        <Button x:Name="btLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="63.083,75.04,0,0" Click="btLogin_Click"/>
         <PasswordBox x:Name="tbPassword" Margin="63.083,44.04,10,0" Height="23" VerticalAlignment="top" PreviewKeyDown="tbPassword_PreviewKeyDown"/>
+        <RadioButton x:Name="rbView" Content="View" Margin="143.083,0,104,8.31" VerticalAlignment="Bottom" FontSize="10"/>
+        <RadioButton x:Name="rbInput" Content="Input" HorizontalAlignment="Right" Margin="0,0,51.75,8.31" VerticalAlignment="Bottom" FontSize="10"/>
     </Grid>
 </Controls:MetroWindow>

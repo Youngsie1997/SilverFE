@@ -46,17 +46,26 @@ namespace SilverFE
                 da.Fill(ds);
                 int count = ds.Tables[0].Rows.Count;
                 conn.Close();
-                if(count == 1)
+                if(count == 1 && rbView.IsChecked == true) 
                 {
                     MessageBox.Show("Login Successful", "Login", MessageBoxButton.OK, MessageBoxImage.None);
                     Main main = new Main();
                     main.Show();
                     this.Close();
                 }
-                else
+                else if(count == 0)
                 {
-                   
+                    MessageBox.Show("Login Failed", "Login", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+
+                if (count == 1 && rbInput.IsChecked == true)
+                {
+                    MessageBox.Show("Login Successful", "Login", MessageBoxButton.OK, MessageBoxImage.None);
+                    Input input = new Input();
+                    input.Show();
+                    this.Close();
+                }
+
             }
             catch(Exception Error)
             {
