@@ -9,9 +9,11 @@
 
 
     <Controls:MetroWindow.Resources>
-   
+
         <Style TargetType="DataGridCell">
             <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+
+
         </Style>
 
         <Style x:Key="MyColumnHeader"
@@ -20,14 +22,14 @@
             <Setter Property="Controls:ControlsHelper.ContentCharacterCasing" Value="Upper"></Setter>
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-           
+
 
         </Style>
     </Controls:MetroWindow.Resources>
 
 
 
-<Grid x:Name="TableGrid">
+    <Grid x:Name="TableGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -50,15 +52,33 @@
             <ComboBoxItem x:Name="Type" Content="Type" HorizontalAlignment="Center"/>
             <ComboBoxItem x:Name="Year" Content="Year" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <ComboBoxItem x:Name="Quantity" Content="Quantity" HorizontalAlignment="Center"/>
-            <ComboBoxItem x:Name="D" Content="D" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBoxItem x:Name="P" Content="P" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <ComboBoxItem x:Name="S" Content="S" HorizontalAlignment="Center"/>
+            <ComboBoxItem x:Name="Mint" Content="Mint"  HorizontalAlignment="Center"/>
             <ComboBoxItem x:Name="Buy" Content="Buy" HorizontalAlignment="Center"/>
             <ComboBoxItem x:Name="Sell" Content="Sell" HorizontalAlignment="Center"/>
             <ComboBoxItem x:Name="Profit" Content="Profit" HorizontalAlignment="Center"/>
         </ComboBox>
-        <TextBox x:Name="tbSearch" Grid.Column="3" Grid.Row="0" TextWrapping="NoWrap" MaxLines="1" Controls:TextBoxHelper.Watermark="Search" HorizontalContentAlignment="Center" TextChanged="tbSearch_TextChanged"  />
-        <DataGrid x:Name="dgSilver" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.682,0.8" Grid.ColumnSpan="4" d:LayoutOverrides="Width" RowBackground="#FFCBFB63" AutoGeneratingColumn="dgSilver_AutoGeneratingColumn" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ColumnHeaderStyle="{StaticResource MyColumnHeader}"/>
+        <TextBox x:Name="tbSearch" Grid.Column="3" Grid.Row="0" TextWrapping="NoWrap" MaxLines="1" Controls:TextBoxHelper.Watermark="Search" HorizontalContentAlignment="Center" PreviewTextInput="tbSearch_PreviewTextInput" TextChanged="tbSearch_TextChanged"  />
+        <DataGrid x:Name="dgSilver" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.682,0.8" Grid.ColumnSpan="4" d:LayoutOverrides="Width" RowBackground="#FFCBFB63" AutoGeneratingColumn="dgSilver_AutoGeneratingColumn" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{StaticResource MyColumnHeader}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id}" Width="1*"  Header="ID"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding type}" Width="1*" Header="Type" ></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding year}" Width="1*" Header="Year" ></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding mint}" Width="1*" Header="Mint"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding buy,StringFormat=N2}" Width="1*" Header="Buy" ></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding sell,StringFormat=N2}" Width="1*" Header="Sell"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding profit,StringFormat=N2}" Width="1*" Header="Profit"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+
+
+
+        </DataGrid>
+
+
+
+
+
+
 
 
 

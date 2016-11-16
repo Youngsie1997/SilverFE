@@ -22,7 +22,7 @@ namespace SilverFE
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            login();
         }
 
 
@@ -49,9 +49,15 @@ namespace SilverFE
                 if(count == 1 && rbView.IsChecked == true) 
                 {
                     MessageBox.Show("Login Successful", "Login", MessageBoxButton.OK, MessageBoxImage.None);
+                    string sql2 = "UPDATE login SET last_login='now' WHERE ID='" + ds.Tables[0].Rows[0][0] + "'";
+                    NpgsqlCommand logindate = new NpgsqlCommand(sql2, conn);
+                    conn.Open();
+                    logindate.ExecuteNonQuery();
+                    conn.Close();
                     Main main = new Main();
                     main.Show();
                     this.Close();
+                    
                 }
                 else if(count == 0)
                 {
@@ -61,8 +67,13 @@ namespace SilverFE
                 if (count == 1 && rbInput.IsChecked == true)
                 {
                     MessageBox.Show("Login Successful", "Login", MessageBoxButton.OK, MessageBoxImage.None);
+                    string sql2 = "UPDATE login SET last_login='now' WHERE ID='" + ds.Tables[0].Rows[0][0] + "'";
+                    NpgsqlCommand logindate = new NpgsqlCommand(sql2, conn);
+                    conn.Open();
+                    logindate.ExecuteNonQuery();
                     Input input = new Input();
                     input.Show();
+                    conn.Close();
                     this.Close();
                 }
 
@@ -108,6 +119,7 @@ namespace SilverFE
         private void LoginWindow_Loaded(object sender, RoutedEventArgs e)
         {
             tbUserName.Focus();
+            rbView.IsChecked = true;
             tbUserName.MaxLength = 20;
             tbPassword.MaxLength = 20;
         }
@@ -141,7 +153,7 @@ namespace SilverFE
         }
         #endregion
 
-
+   
 
 
 

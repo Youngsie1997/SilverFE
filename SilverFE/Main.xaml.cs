@@ -19,6 +19,7 @@ namespace SilverFE
         }
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
+      
 
 
         NpgsqlConnection conn = new NpgsqlConnection("Server=murky.freeborough.com;Port=5432;User Id=connor;Password=poop123;Database=silver;");
@@ -54,10 +55,13 @@ namespace SilverFE
 
         private void btShow_Click(object sender, RoutedEventArgs e)
         {
+            
             try
             {
                 if(cbSortType.Text == "All")
                 {
+
+                   
                     this.Openconn();
                     string sql = "SELECT * FROM " + cbTable.Text.ToString() + ";";
                     TableWindow.Title = "" + cbTable.Text.ToString() + "";
@@ -120,10 +124,10 @@ namespace SilverFE
 
         private void tbSearch_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            if(cbSortType.Text != "Type")
+            if(cbSortType.Text != "All" || cbSortType.Text != "Type" || cbSortType.Text != "Mint")
             {
-                if (!char.IsDigit(e.Text, e.Text.Length - 1))
-                    e.Handled = true;
+                Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$"); 
+                e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
             }
         }
     }

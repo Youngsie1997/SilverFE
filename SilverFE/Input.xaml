@@ -10,23 +10,30 @@
         Title="Input" Height="300" Width="574" Icon="SilverBar.ico">
 
     <Grid>
-        <TextBox x:Name="tbType" HorizontalAlignment="Left" Height="23" Margin="72.863,10,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text="" />
+        <TextBox x:Name="tbType" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="23" Margin="72.863,10,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text=""   />
         <Label x:Name="lbType" Content="Type :" HorizontalAlignment="Left" Margin="30.499,10.04,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbYear" Content="Year :" HorizontalAlignment="Left" Margin="30.499,41,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbYear" HorizontalAlignment="Left" Height="23" Margin="72.862,41,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text="" />
+        <TextBox x:Name="tbYear" HorizontalAlignment="Left" HorizontalContentAlignment="Center"  Height="23" Margin="72.862,41,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text="" PreviewTextInput="tbYear_PreviewTextInput" />
         <Label x:Name="lbQty" Content="Quantity :" HorizontalAlignment="Left" Margin="197.863,10.08,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbQty" Height="23" Margin="256.043,10,189.957,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="" />
+        <TextBox x:Name="tbQty" Height="23" Margin="256.043,10,189.957,0" HorizontalContentAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Top" Text=""  PreviewTextInput="tbYear_PreviewTextInput"/>
         <Label x:Name="lbMint" Content="Mint :" HorizontalAlignment="Left" Margin="197.862,40.96,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbMint" Height="23" Margin="256.043,41.04,189.957,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="" />
+        <ComboBox x:Name="cbMint" Margin="256.043,41.04,189.957,0" VerticalAlignment="Top" SelectedIndex="0" HorizontalContentAlignment="Center">
+            <ComboBoxItem x:Name="D" Content="D" HorizontalAlignment="Center"/>
+            <ComboBoxItem x:Name="P" Content="P" HorizontalAlignment="Center"/>
+            <ComboBoxItem x:Name="S" Content="S" HorizontalAlignment="Center"/>
+        </ComboBox>
         <Label x:Name="lbBuy" Content="Buy :" HorizontalAlignment="Right" Margin="0,10.08,152.88,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbBuy" Height="23" Margin="0,10.08,27.88,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="" HorizontalAlignment="Right" Width="120" />
+        <TextBox x:Name="tbBuy" Height="23" Margin="0,10.08,27.88,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Width="120" PreviewTextInput="tbYear_PreviewTextInput" />
         <Label x:Name="lbSell" Content="Sell :" HorizontalAlignment="Right" Margin="0,40.96,153.893,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSell" Height="23" Margin="0,40.92,27.88,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="" HorizontalAlignment="Right" Width="120" />
-        <Button x:Name="button" Content="Insert" Margin="20.499,103,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.333,0.512" Click="button_Click"/>
-        <ComboBox x:Name="cbTable" Margin="72.862,72,27.88,0" VerticalAlignment="Top" SelectedIndex="0" HorizontalContentAlignment="Center">
+        <TextBox x:Name="tbSell" Height="23" Margin="0,40.92,27.88,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Width="120" PreviewTextInput="tbYear_PreviewTextInput" />
+        <Button x:Name="btInsert" Margin="20.499,103,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.333,0.512" Click="btInsert_Click" Content="Insert"/>
+        <ComboBox x:Name="cbTable" Margin="72.862,72,27.88,0" VerticalAlignment="Top" SelectedIndex="0" HorizontalContentAlignment="Center" >
             <ComboBoxItem x:Name="Dimes" Content="Dimes" HorizontalAlignment="Center"/>
             <ComboBoxItem x:Name="Quarters" Content="Quarters" HorizontalAlignment="Center"/>
         </ComboBox>
+        <TextBox x:Name="tbID" Height="23" Margin="72.862,134,0,109" TextWrapping="NoWrap" RenderTransformOrigin="0.06,0.231" MaxLines="1" HorizontalAlignment="Left" Width="64.501" PreviewTextInput="tbYear_PreviewTextInput"/>
+        <Label x:Name="lbID" Content="ID :" Margin="30.499,134,0,109.04" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="35"/>
+        <Button x:Name="btDelete" Content="Delete" Margin="142.363,0,0,108.54" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Click="btDelete_Click"/>
 
 
 
