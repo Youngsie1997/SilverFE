@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.Data;
 using Npgsql;
 using MahApps.Metro.Controls;
+using System.Text.RegularExpressions;
+
 namespace SilverFE
 {
     /// <summary>
@@ -67,6 +69,19 @@ namespace SilverFE
                     this.Closeconn();
                 }
 
+                if (cbSortType.Text != "All" && tbSearch.Text.ToString() != "")
+                {
+                    this.Openconn();
+                    string sql = "SELECT * FROM " + cbTable.Text.ToString() + " WHERE " + cbSortType.Text.ToString() + " = '" + tbSearch.Text.ToString() + "'";
+                    TableWindow.Title = "" + cbTable.Text.ToString() + "";
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+                    ds.Reset();
+                    da.Fill(ds);
+                    dt = ds.Tables[0];
+                    dgSilver.ItemsSource = dt.DefaultView;
+                    this.Closeconn();
+                }
+
             }
             catch(Exception Error)
             {
@@ -98,7 +113,17 @@ namespace SilverFE
             }
             catch(Exception Error)
             {
-                throw Error;
+                MessageBox.Show(Error.ToString());
+                Closeconn();
+            }
+        }
+
+        private void tbSearch_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if(cbSortType.Text != "Type")
+            {
+                if (!char.IsDigit(e.Text, e.Text.Length - 1))
+                    e.Handled = true;
             }
         }
     }
